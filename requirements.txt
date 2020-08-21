@@ -4,5 +4,4 @@ django-tastypie==0.14.3
 django-webfilemanager==1.1.0
 djangorestframework==3.10.3
 bs4==0.0.1
-request==2019.3.22
 requests==2.21.0
