@@ -23,7 +23,7 @@ def index(request):
 @permission_classes([AllowAny])
 def get_link(request):
     try:
-        url = request.POST.get('params')
+        url = request.POST.get('url')
         return RR(data={'Results': url, 'message': 'url'})
         url = url['url']
         if url != None:
