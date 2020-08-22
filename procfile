@@ -1,1 +1,0 @@
-web: gunicorn jumia_scrapper.wsgi
