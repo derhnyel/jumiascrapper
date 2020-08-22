@@ -22,6 +22,7 @@ def index(request):
 def get_link(request) :
     try:
         url = request.POST.get('url')
+        url = url['url']
         if None not in (url):
             p = scrapper(url)      
             return RR(data={'Results': p, 'message': 'SuccessFul'})
@@ -43,9 +44,7 @@ def scrapper(link):
     product_description = soup.select('div.markup.-mhm.-pvl.-oxa.-sc ')[0].getText()
     product_price = [i.strip() for i in product_price_soup[0].getText().split('¦')]
     result = {'product_name':product_name, 'product_price':product_price, 'product_description':product_description, 'images_link':images_link}
+    
     return result
     
 
-
-
-    
