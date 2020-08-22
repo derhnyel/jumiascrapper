@@ -10,7 +10,6 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
-import dj_database_url
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -121,6 +120,3 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-
-db_from_env = dj_database_url.config(conn_max_age=500) 
-DATABASES['default'].update(db_from_env)
