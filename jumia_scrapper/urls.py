@@ -19,5 +19,7 @@ from product import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',views.index,name = 'home')
+    path('',views.index,name = 'home'),
+    path('/scrape/', views.get_link),
+    path('/scrape', views.get_link),
 ]
