@@ -24,6 +24,7 @@ def index(request):
 def get_link(request):
     try:
         url = request.POST.get('url')
+        url = url['url']
         if None not in (url):
             p = scrapper(url)
             return RR(data={'Results': p, 'message': 'SuccessFul'})
