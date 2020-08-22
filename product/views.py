@@ -45,9 +45,8 @@ def scrapper(link):
         images_link.append(image_soup[i].get('href'))
     product_description = soup.select(
         'div.markup.-mhm.-pvl.-oxa.-sc ')[0].getText()
-    List_product_price = [i.strip()
-                     for i in product_price_soup[0].getText().split('¦')]
-    product_price = List_product_price[1]                 
+    product_price = [i.strip()
+                     for i in product_price_soup[0].getText().split('¦')]               
     result = {'product_name': product_name, 'product_price': product_price,
               'product_description': product_description, 'images_link': images_link}
     return result
