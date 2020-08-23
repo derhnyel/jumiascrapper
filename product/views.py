@@ -23,7 +23,7 @@ def index(request):
 @permission_classes([AllowAny])
 def get_link(request):
     try:
-        url = request.POST.get('url','')
+        url = request.POST.get('url')
         #url = load_url(urls)
         if url != None: 
             p = scrapper(url)
