@@ -23,8 +23,8 @@ def index(request):
 @permission_classes([AllowAny])
 def get_link(request):
     try:
-        url = request.POST.get('url')
-        #url = load_url(urls)
+        payload = request.POST.get()
+        url = load_url(payload)
         if url != None: 
             p = scrapper(url)
             return RR(data={'Results': p, 'message': 'SuccessFul'})
@@ -34,8 +34,9 @@ def get_link(request):
         return RR(data={'success': False, 'message': str(e)}, status=HTTP_400_BAD_REQUEST)
 
 
-def load_url(url):
-    url = loads(url)
+def load_url(payload):
+    payload = loads(payload)
+    url = payload['url']
     return url
 
 
