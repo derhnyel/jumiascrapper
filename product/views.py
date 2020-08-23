@@ -23,9 +23,9 @@ def index(request):
 @permission_classes([AllowAny])
 def get_link(request):
     try:
-        url = request.POST.get('url')
-        #url = load_url(urls)
-        if url != None:
+        urls = request.POST.get('url')
+        if None not in (urls):
+            url = load_url(urls)
             p = scrapper(url)
             return RR(data={'Results': p, 'message': 'SuccessFul'})
         else:
