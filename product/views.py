@@ -24,7 +24,7 @@ def index(request):
 def get_link(request):
     try:
         urls = request.POST.get('url')
-        return RR(data={'res':urls})
+        return RR(data={'res':type(urls)})
         if None not in (urls):
             url = load_url(urls)
             p = scrapper(url)
