@@ -23,8 +23,8 @@ def index(request):
 @permission_classes([AllowAny])
 def get_link(request):
     try:
-        urls = request.POST.get('url')
-        url = load_url(urls) 
+        url = request.POST.get('url')
+        #url = load_url(urls)
         if url != None:
             p = scrapper(url)
             return RR(data={'Results': p, 'message': 'SuccessFul'})
