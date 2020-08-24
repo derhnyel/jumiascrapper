@@ -23,8 +23,7 @@ def index(request):
 @permission_classes([AllowAny])
 def get_link(request):
     try:
-        payload = request.body()
-        return RR(data={'Results': payload , 'message': 'payload'})
+        payload = request.body
         convert = payload.decode("utf-8")
         url = load_url(convert)
         if url != None: 
