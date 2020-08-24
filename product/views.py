@@ -24,12 +24,12 @@ def index(request):
 def get_link(request):
     try:
         payload = request.body()
-        return RR(data={'Results': payload , 'message': 'SuccessFul'})
+        return RR(data={'Results': payload , 'message': 'payload'})
         convert = payload.decode("utf-8")
         url = load_url(convert)
         if url != None: 
             p = scrapper(url)
-            return RR(data={'Results': p, 'message': 'SuccessFul'})
+            return RR(data={'Results': p})
         else:
             raise Exception('Invalid URL!')
     except Exception:
@@ -37,7 +37,7 @@ def get_link(request):
             url = request.POST.get('url')
             if url != None:
                 p = scrapper(url)
-                return RR(data={'Results': p, 'message': 'SuccessFul'})
+                return RR(data={'Results': p})
             else:
                 raise Exception('Invalid URL!')
         except Exception as e:
