@@ -23,15 +23,24 @@ def index(request):
 @permission_classes([AllowAny])
 def get_link(request):
     try:
-        payload = request.POST.get()
-        url = load_url(payload)
+        payload = request.body()
+        convert = payload.decode("utf-8")
+        url = load_url(convert)
         if url != None: 
             p = scrapper(url)
             return RR(data={'Results': p, 'message': 'SuccessFul'})
         else:
             raise Exception('Invalid URL!')
-    except Exception as e:
-        return RR(data={'success': False, 'message': str(e)}, status=HTTP_400_BAD_REQUEST)
+    except Exception:
+        try:
+            url = request.POST.get('url')
+            if url != None:
+                p = scrapper(url)
+                return RR(data={'Results': p, 'message': 'SuccessFul'})
+            else:
+                raise Exception('Invalid URL!')
+        except Exception as e:
+            return RR(data={'success': False, 'message': str(e)}, status=HTTP_400_BAD_REQUEST)
 
 
 def load_url(payload):
