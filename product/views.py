@@ -24,7 +24,7 @@ def index(request):
 def get_link(request):
     try:
         payload = request.body()
-        return RR(data={'Results': payload, 'message': 'SuccessFul'})
+        return RR(data={'Results': payload , 'message': 'SuccessFul'})
         convert = payload.decode("utf-8")
         url = load_url(convert)
         if url != None: 
