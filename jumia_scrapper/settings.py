@@ -25,7 +25,7 @@ SECRET_KEY = 'zu*2mu-7o=z)sl6boto2diwr1zl$v2erc1c*=dz=i6bc=j*47s'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['jumia-scrapper.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
