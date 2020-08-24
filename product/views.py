@@ -45,7 +45,7 @@ def get_link(request):
 
 def load_url(payload):
     payload = loads(payload)
-    url = payload['url']
+    url = payload["url"]
     return url
 
 
